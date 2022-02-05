@@ -44,9 +44,14 @@ void SoftwareRendererImp::set_sample_rate( size_t sample_rate ) {
 
   // Task 4: 
   // You may want to modify this for supersampling support
+  /**
+   * this function is called whenever the user changes the screen sampling rate
+   */
   this->sample_rate = sample_rate;
-
-
+  w = sample_rate * target_w;
+  h = sample_rate * target_h;
+  sample_buffer.resize(w * h * 4);  // width * height * num_channels
+  std::fill(sample_buffer.begin(), sample_buffer.end(), 255);
 }
 
 void SoftwareRendererImp::set_render_target( unsigned char* render_target,
@@ -54,10 +59,17 @@ void SoftwareRendererImp::set_render_target( unsigned char* render_target,
 
   // Task 4: 
   // You may want to modify this for supersampling support
+  /** this function is called whenever the user resizes the application window,
+   * we need to adjust target_w, target_h, w, h, sample_buffer accordingly
+   */
   this->render_target = render_target;
   this->target_w = width;
   this->target_h = height;
 
+  w = sample_rate * target_w;
+  h = sample_rate * target_h;
+  sample_buffer.resize(w * h * 4);  // width * height * num_channels
+  std::fill(sample_buffer.begin(), sample_buffer.end(), 255);
 }
 
 void SoftwareRendererImp::draw_element( SVGElement* element ) {
@@ -231,11 +243,12 @@ void SoftwareRendererImp::rasterize_point( float x, float y, Color color ) {
   if ( sx < 0 || sx >= target_w ) return;
   if ( sy < 0 || sy >= target_h ) return;
 
+  fill_pixel(sx, sy, color);
   // fill sample - NOT doing alpha blending!
-  render_target[4 * (sx + sy * target_w)    ] = (uint8_t) (color.r * 255);
-  render_target[4 * (sx + sy * target_w) + 1] = (uint8_t) (color.g * 255);
-  render_target[4 * (sx + sy * target_w) + 2] = (uint8_t) (color.b * 255);
-  render_target[4 * (sx + sy * target_w) + 3] = (uint8_t) (color.a * 255);
+//  render_target[4 * (sx + sy * target_w)    ] = (uint8_t) (color.r * 255);
+//  render_target[4 * (sx + sy * target_w) + 1] = (uint8_t) (color.g * 255);
+//  render_target[4 * (sx + sy * target_w) + 2] = (uint8_t) (color.b * 255);
+//  render_target[4 * (sx + sy * target_w) + 3] = (uint8_t) (color.a * 255);
 
 }
 
@@ -326,32 +339,36 @@ void SoftwareRendererImp::rasterize_triangle( float x0, float y0,
                                               Color color ) {
   // Task 3: 
   // Implement triangle rasterization
-  int xmin = (int) floor(min({x0, x1, x2}));
-  int xmax = (int) floor(max({x0, x1, x2}));
-  int ymin = (int) floor(min({y0, y1, y2}));
-  int ymax = (int) floor(max({y0, y1, y2}));
+  float xmin = floor(min({x0, x1, x2}));
+  float xmax = ceil(max({x0, x1, x2}));
+  float ymin = floor(min({y0, y1, y2}));
+  float ymax = ceil(max({y0, y1, y2}));
   Vector2D ab(x1 - x0, y1 - y0);
   Vector2D bc(x2 - x1, y2 - y1);
   Vector2D ca(x0 - x2, y0 - y2);
 
-  for (int x = xmin; x <= xmax; x++) {
+  double step_size = 1.0 / sample_rate;
+
+  for (float x = xmin; x <= xmax; x += step_size) {
       bool flag = false;
-      for (int y = ymin; y <= ymax; y++) {
-          Vector2D ap(x - x0, y - y0);
-          Vector2D bp(x - x1, y - y1);
-          Vector2D cp(x - x2, y - y2);
-          double cross_a = cross(ab, ap);
-          double cross_b = cross(bc, bp);
-          double cross_c = cross(ca, cp);
-          bool lit = (cross_a * cross_b) >= 0 && (cross_c * cross_b) >= 0;
-          if (lit) {
-              rasterize_point(x, y, color);
-              if (!flag) {
-                  flag = true;
-              }
-          } else {
-              if (flag) break;  // early out
+      for (float y = ymin; y <= ymax; y += step_size) {
+        float center_x = x + 1 / (2 * sample_rate);
+        float center_y = y + 1 / (2 * sample_rate);
+        Vector2D ap(center_x - x0, center_y - y0);
+        Vector2D bp(center_x - x1, center_y - y1);
+        Vector2D cp(center_x - x2, center_y - y2);
+        double cross_a = cross(ab, ap);
+        double cross_b = cross(bc, bp);
+        double cross_c = cross(ca, cp);
+        bool lit = (cross_a * cross_b) >= 0 && (cross_c * cross_b) >= 0;
+        if (lit) {
+          fill_sample(x * sample_rate, y * sample_rate, color);
+          if (!flag) {
+            flag = true;
           }
+        } else {
+          if (flag) break;  // early out
+        }
       }
   }
 
@@ -371,9 +388,46 @@ void SoftwareRendererImp::resolve( void ) {
   // Task 4: 
   // Implement supersampling
   // You may also need to modify other functions marked with "Task 4".
-  return;
-
+  memset(render_target, 0, 4 * target_w * target_h);
+  for (int i = 0; i < target_w; i++) {
+    for (int j = 0; j < target_h; j++) {
+      int target_start_idx = 4 * (target_w * j + i);
+      for (int dx = 0; dx < sample_rate; dx++ ) {
+        for (int dy = 0; dy < sample_rate; dy++) {
+          int x = sample_rate * i + dx;
+          int y = sample_rate * j + dy;
+          render_target[target_start_idx] += sample_buffer[4 * (w * y + x)];
+          render_target[target_start_idx + 1] += sample_buffer[4 * (w * y + x) + 1];
+          render_target[target_start_idx + 2] += sample_buffer[4 * (w * y + x) + 2];
+          render_target[target_start_idx + 3] += sample_buffer[4 * (w * y + x) + 3];
+        }
+      }
+      render_target[target_start_idx] /= (sample_rate * sample_rate);
+      render_target[target_start_idx + 1] /= (sample_rate * sample_rate);
+      render_target[target_start_idx + 2] /= (sample_rate * sample_rate);
+      render_target[target_start_idx + 3] /= (sample_rate * sample_rate);
+    }
+  }
 }
 
+void SoftwareRendererImp::fill_sample( int sx, int sy, const Color& c ) {
+
+  sample_buffer[4 * (sx + sy * w)    ] = (uint8_t) (c.r * 255);
+  sample_buffer[4 * (sx + sy * w) + 1] = (uint8_t) (c.g * 255);
+  sample_buffer[4 * (sx + sy * w) + 2] = (uint8_t) (c.b * 255);
+  sample_buffer[4 * (sx + sy * w) + 3] = (uint8_t) (c.a * 255);
+}
+
+void SoftwareRendererImp::fill_pixel( int x, int y, const Color& c ) {
+  int i = x * sample_rate;
+  int j = y * sample_rate;
+  int x_end = i + sample_rate;
+  int y_end = j + sample_rate;
+  for (; i < x_end; i++) {
+    for (; j < y_end; j++) {
+      fill_sample(i, j, c);
+    }
+  }
+}
 
 } // namespace CMU462

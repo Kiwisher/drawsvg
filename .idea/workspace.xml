@@ -15,10 +15,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="">
+    <list default="true" id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="finish task1-3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hardware/hardware_renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/hardware/hardware_renderer.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/software_renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/software_renderer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/software_renderer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/software_renderer.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +44,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
   </component>
   <component name="RunManager" selected="CMake Application.drawsvg">
     <configuration name="CMU462" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="drawsvg" TARGET_NAME="CMU462" CONFIG_NAME="Debug">
@@ -89,12 +90,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1644004743633</updated>
-      <workItem from="1644004746725" duration="19067000" />
+      <workItem from="1644004746725" duration="28765000" />
     </task>
+    <task id="LOCAL-00001" summary="finish task1-3">
+      <created>1644088164898</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1644088164898</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="finish task1-3" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish task1-3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1644016420695">
@@ -129,6 +142,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1644016424181" />
+    <state x="229" y="86" key="SettingsEditor" timestamp="1644089213645">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="229" y="86" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1644089213645" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1644088166298">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1644088166298" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
