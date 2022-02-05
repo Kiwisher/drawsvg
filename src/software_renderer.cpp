@@ -46,6 +46,7 @@ void SoftwareRendererImp::set_sample_rate( size_t sample_rate ) {
   // You may want to modify this for supersampling support
   this->sample_rate = sample_rate;
 
+
 }
 
 void SoftwareRendererImp::set_render_target( unsigned char* render_target,
@@ -241,9 +242,82 @@ void SoftwareRendererImp::rasterize_point( float x, float y, Color color ) {
 void SoftwareRendererImp::rasterize_line( float x0, float y0,
                                           float x1, float y1,
                                           Color color) {
-
-  // Task 2: 
+    // Task 2:
   // Implement line rasterization
+  int sx0 = (int) floor(x0);
+  int sy0 = (int) floor(y0);
+  int sx1 = (int) floor(x1);
+  int sy1 = (int) floor(y1);
+  int dx = sx1 - sx0;
+  int dy = sy1 - sy0;
+  int x, y;
+
+  if (dy == 0) {  // horizontal
+      if (sx0 > sx1) {
+          swap(sx0, sx1);
+      }
+      for (x = sx0; x <= sx1; x++) {
+          rasterize_point(x, sy0, color);
+      }
+  } else if (dx == 0) {  // vertical
+      if (sy0 > sy1) {
+          swap(sy0, sy1);
+      }
+      for (y = sy0; y <= sy1; y++) {
+          rasterize_point(sx0, y, color);
+      }
+  }
+  else {
+      int error = 0;
+      if (abs(dy) <= abs(dx)) {  // acute angle
+          if (dx < 0) {  // point1 always to the right of point0
+              swap(sx0, sx1);
+              swap(sy0, sy1);
+              dx = -dx;
+              dy = -dy;
+          }
+          y = sy0;
+          bool pos_tan = dy > 0;
+          dy = abs(dy);
+          for (x = sx0; x <= sx1; x++) {
+              rasterize_point(x, y, color);
+              error += dy;
+              if ((error << 1) >= dx) {
+                  if (pos_tan) {
+                      y++;
+                  } else {
+                      y--;
+                  }
+                  error -= dx;
+              }
+          }
+      }
+      else {
+          if (dy < 0) {
+              swap(sx0, sx1);
+              swap(sy0, sy1);
+              dx = -dx;
+              dy = -dy;
+          }
+          x = sx0;
+          bool pos_tan = dx > 0;
+          dx = abs(dx);
+          for (y = sy0; y <= sy1; y++) {
+              rasterize_point(x, y, color);
+              error += dx;
+              if ((error << 1) >= dy) {
+                  if (pos_tan) {
+                      x++;
+                  } else {
+                      x--;
+                  }
+                  error -= dy;
+              }
+          }
+      }
+  }
+
+
 }
 
 void SoftwareRendererImp::rasterize_triangle( float x0, float y0,
@@ -252,6 +326,34 @@ void SoftwareRendererImp::rasterize_triangle( float x0, float y0,
                                               Color color ) {
   // Task 3: 
   // Implement triangle rasterization
+  int xmin = (int) floor(min({x0, x1, x2}));
+  int xmax = (int) floor(max({x0, x1, x2}));
+  int ymin = (int) floor(min({y0, y1, y2}));
+  int ymax = (int) floor(max({y0, y1, y2}));
+  Vector2D ab(x1 - x0, y1 - y0);
+  Vector2D bc(x2 - x1, y2 - y1);
+  Vector2D ca(x0 - x2, y0 - y2);
+
+  for (int x = xmin; x <= xmax; x++) {
+      bool flag = false;
+      for (int y = ymin; y <= ymax; y++) {
+          Vector2D ap(x - x0, y - y0);
+          Vector2D bp(x - x1, y - y1);
+          Vector2D cp(x - x2, y - y2);
+          double cross_a = cross(ab, ap);
+          double cross_b = cross(bc, bp);
+          double cross_c = cross(ca, cp);
+          bool lit = (cross_a * cross_b) >= 0 && (cross_c * cross_b) >= 0;
+          if (lit) {
+              rasterize_point(x, y, color);
+              if (!flag) {
+                  flag = true;
+              }
+          } else {
+              if (flag) break;  // early out
+          }
+      }
+  }
 
 }
 

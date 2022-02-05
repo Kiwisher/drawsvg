@@ -1,8 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="drawsvg" targetName="glew" />
+      <config projectName="drawsvg" targetName="glfw" />
+      <config projectName="drawsvg" targetName="CMU462" />
+      <config projectName="drawsvg" targetName="drawsvg" />
+      <config projectName="drawsvg" targetName="drawsvg_hdwr" />
+    </generated>
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hardware/hardware_renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/hardware/hardware_renderer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/software_renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/software_renderer.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="24exEiaTBlXlWnCqY5jbcvslamR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager" selected="CMake Application.drawsvg">
+    <configuration name="CMU462" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="drawsvg" TARGET_NAME="CMU462" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="drawsvg" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="../svg/basic/test1.svg" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="drawsvg" TARGET_NAME="drawsvg" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="drawsvg" RUN_TARGET_NAME="drawsvg">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="drawsvg_hdwr" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="drawsvg" TARGET_NAME="drawsvg_hdwr" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="glew" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="drawsvg" TARGET_NAME="glew" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="glfw" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="drawsvg" TARGET_NAME="glfw" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.glew" />
+      <item itemvalue="CMake Application.glfw" />
+      <item itemvalue="CMake Application.CMU462" />
+      <item itemvalue="CMake Application.drawsvg" />
+      <item itemvalue="CMake Application.drawsvg_hdwr" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="" />
+      <created>1644004743633</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1644004743633</updated>
+      <workItem from="1644004746725" duration="19067000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1644016420695">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1644016420695" />
+    <state x="507" y="159" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1644016304300">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="507" y="159" key="#com.intellij.ide.macro.MacrosDialog/0.0.1440.900@0.0.1440.900" timestamp="1644016304299" />
+    <state x="594" y="351" width="846" height="334" key="Github.ShareDialog" timestamp="1644004776536">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="594" y="351" width="846" height="334" key="Github.ShareDialog/0.0.1440.900@0.0.1440.900" timestamp="1644004776536" />
+    <state x="435" y="159" key="Github.UntrackedFilesDialog" timestamp="1644004797684">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="435" y="159" key="Github.UntrackedFilesDialog/0.0.1440.900@0.0.1440.900" timestamp="1644004797684" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1644016424182">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1644016424182" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1644016424181">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1644016424181" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1644016424180">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1644016424180" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1644016424181">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1644016424181" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/svg.h</url>
+          <line>101</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
