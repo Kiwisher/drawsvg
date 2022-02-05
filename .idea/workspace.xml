@@ -15,7 +15,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="finish task 4">
+    <list default="true" id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="annotations">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/software_renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/software_renderer.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1644004743633</updated>
-      <workItem from="1644004746725" duration="28818000" />
+      <workItem from="1644004746725" duration="30781000" />
     </task>
     <task id="LOCAL-00001" summary="finish task1-3">
       <created>1644088164898</created>
@@ -104,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644100199171</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="annotations">
+      <created>1644100239470</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1644100239470</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,7 +121,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="finish task1-3" />
     <MESSAGE value="finish task 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish task 4" />
+    <MESSAGE value="annotations" />
+    <option name="LAST_COMMIT_MESSAGE" value="annotations" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1644016420695">
@@ -152,10 +161,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="86" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1644089213645" />
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1644100200321">
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1644100240627">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1644100200321" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1644100240627" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

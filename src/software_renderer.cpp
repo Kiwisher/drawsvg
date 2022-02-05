@@ -16,6 +16,9 @@ namespace CMU462 {
 
 void SoftwareRendererImp::draw_svg( SVG& svg ) {
 
+  // clear buffer
+  std::fill(sample_buffer.begin(), sample_buffer.end(), 255);
+
   // set top level transformation
   transformation = svg_2_screen;
 
@@ -42,7 +45,7 @@ void SoftwareRendererImp::draw_svg( SVG& svg ) {
 
 void SoftwareRendererImp::set_sample_rate( size_t sample_rate ) {
 
-  // Task 4: 
+  // Task 4:
   // You may want to modify this for supersampling support
   /**
    * this function is called whenever the user changes the screen sampling rate
@@ -51,13 +54,12 @@ void SoftwareRendererImp::set_sample_rate( size_t sample_rate ) {
   w = sample_rate * target_w;
   h = sample_rate * target_h;
   sample_buffer.resize(w * h * 4);  // width * height * num_channels
-  std::fill(sample_buffer.begin(), sample_buffer.end(), 255);
 }
 
 void SoftwareRendererImp::set_render_target( unsigned char* render_target,
                                              size_t width, size_t height ) {
 
-  // Task 4: 
+  // Task 4:
   // You may want to modify this for supersampling support
   /** this function is called whenever the user resizes the application window,
    * we need to adjust target_w, target_h, w, h, sample_buffer accordingly
@@ -69,7 +71,6 @@ void SoftwareRendererImp::set_render_target( unsigned char* render_target,
   w = sample_rate * target_w;
   h = sample_rate * target_h;
   sample_buffer.resize(w * h * 4);  // width * height * num_channels
-  std::fill(sample_buffer.begin(), sample_buffer.end(), 255);
 }
 
 void SoftwareRendererImp::draw_element( SVGElement* element ) {
@@ -118,7 +119,7 @@ void SoftwareRendererImp::draw_point( Point& point ) {
 
 }
 
-void SoftwareRendererImp::draw_line( Line& line ) { 
+void SoftwareRendererImp::draw_line( Line& line ) {
 
   Vector2D p0 = transform(line.from);
   Vector2D p1 = transform(line.to);
@@ -143,7 +144,7 @@ void SoftwareRendererImp::draw_polyline( Polyline& polyline ) {
 void SoftwareRendererImp::draw_rect( Rect& rect ) {
 
   Color c;
-  
+
   // draw as two triangles
   float x = rect.position.x;
   float y = rect.position.y;
@@ -154,7 +155,7 @@ void SoftwareRendererImp::draw_rect( Rect& rect ) {
   Vector2D p1 = transform(Vector2D( x + w ,   y   ));
   Vector2D p2 = transform(Vector2D(   x   , y + h ));
   Vector2D p3 = transform(Vector2D( x + w , y + h ));
-  
+
   // draw fill
   c = rect.style.fillColor;
   if (c.a != 0 ) {
@@ -208,7 +209,7 @@ void SoftwareRendererImp::draw_polygon( Polygon& polygon ) {
 
 void SoftwareRendererImp::draw_ellipse( Ellipse& ellipse ) {
 
-  // Extra credit 
+  // Extra credit
 
 }
 
@@ -230,7 +231,7 @@ void SoftwareRendererImp::draw_group( Group& group ) {
 
 // Rasterization //
 
-// The input arguments in the rasterization functions 
+// The input arguments in the rasterization functions
 // below are all defined in screen space coordinates
 
 void SoftwareRendererImp::rasterize_point( float x, float y, Color color ) {
@@ -337,7 +338,7 @@ void SoftwareRendererImp::rasterize_triangle( float x0, float y0,
                                               float x1, float y1,
                                               float x2, float y2,
                                               Color color ) {
-  // Task 3: 
+  // Task 3:
   // Implement triangle rasterization
   float xmin = floor(min({x0, x1, x2}));
   float xmax = ceil(max({x0, x1, x2}));
@@ -377,7 +378,7 @@ void SoftwareRendererImp::rasterize_triangle( float x0, float y0,
 void SoftwareRendererImp::rasterize_image( float x0, float y0,
                                            float x1, float y1,
                                            Texture& tex ) {
-  // Task 6: 
+  // Task 6:
   // Implement image rasterization
 
 }
@@ -385,7 +386,7 @@ void SoftwareRendererImp::rasterize_image( float x0, float y0,
 // resolve samples to render target
 void SoftwareRendererImp::resolve( void ) {
 
-  // Task 4: 
+  // Task 4:
   // Implement supersampling
   // You may also need to modify other functions marked with "Task 4".
   // clear array
@@ -412,7 +413,8 @@ void SoftwareRendererImp::resolve( void ) {
 }
 
 void SoftwareRendererImp::fill_sample( int sx, int sy, const Color& c ) {
-
+  if ( sx < 0 || sx >= w ) return;
+  if ( sy < 0 || sy >= h ) return;
   sample_buffer[4 * (sx + sy * w)    ] = (uint8_t) (c.r * 255);
   sample_buffer[4 * (sx + sy * w) + 1] = (uint8_t) (c.g * 255);
   sample_buffer[4 * (sx + sy * w) + 2] = (uint8_t) (c.b * 255);
