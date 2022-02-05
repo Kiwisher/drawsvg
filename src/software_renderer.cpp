@@ -388,6 +388,7 @@ void SoftwareRendererImp::resolve( void ) {
   // Task 4: 
   // Implement supersampling
   // You may also need to modify other functions marked with "Task 4".
+  // clear array
   memset(render_target, 0, 4 * target_w * target_h);
   for (int i = 0; i < target_w; i++) {
     for (int j = 0; j < target_h; j++) {
