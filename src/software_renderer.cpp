@@ -267,70 +267,147 @@ void SoftwareRendererImp::rasterize_line( float x0, float y0,
   int x, y;
 
   if (dy == 0) {  // horizontal
-      if (sx0 > sx1) {
-          swap(sx0, sx1);
-      }
-      for (x = sx0; x <= sx1; x++) {
-          rasterize_point(x, sy0, color);
-      }
+    if (sx0 > sx1) {
+      swap(sx0, sx1);
+    }
+    for (x = sx0; x <= sx1; x++) {
+      rasterize_point(x, sy0, color);
+    }
   } else if (dx == 0) {  // vertical
-      if (sy0 > sy1) {
-          swap(sy0, sy1);
-      }
-      for (y = sy0; y <= sy1; y++) {
-          rasterize_point(sx0, y, color);
-      }
+    if (sy0 > sy1) {
+      swap(sy0, sy1);
+    }
+    for (y = sy0; y <= sy1; y++) {
+      rasterize_point(sx0, y, color);
+    }
   }
   else {
-      int error = 0;
-      if (abs(dy) <= abs(dx)) {  // acute angle
-          if (dx < 0) {  // point1 always to the right of point0
-              swap(sx0, sx1);
-              swap(sy0, sy1);
-              dx = -dx;
-              dy = -dy;
-          }
-          y = sy0;
-          bool pos_tan = dy > 0;
-          dy = abs(dy);
-          for (x = sx0; x <= sx1; x++) {
-              rasterize_point(x, y, color);
-              error += dy;
-              if ((error << 1) >= dx) {
-                  if (pos_tan) {
-                      y++;
-                  } else {
-                      y--;
-                  }
-                  error -= dx;
-              }
-          }
+    int error = 0;
+    if (abs(dy) <= abs(dx)) {  // acute angle
+      if (dx < 0) {  // point1 always to the right of point0
+        swap(sx0, sx1);
+        swap(sy0, sy1);
+        dx = -dx;
+        dy = -dy;
       }
-      else {
-          if (dy < 0) {
-              swap(sx0, sx1);
-              swap(sy0, sy1);
-              dx = -dx;
-              dy = -dy;
+      y = sy0;
+      bool pos_tan = dy > 0;
+      dy = abs(dy);
+      for (x = sx0; x <= sx1; x++) {
+        rasterize_point(x, y, color);
+        error += dy;
+        if ((error << 1) >= dx) {
+          if (pos_tan) {
+            y++;
+          } else {
+            y--;
           }
-          x = sx0;
-          bool pos_tan = dx > 0;
-          dx = abs(dx);
-          for (y = sy0; y <= sy1; y++) {
-              rasterize_point(x, y, color);
-              error += dx;
-              if ((error << 1) >= dy) {
-                  if (pos_tan) {
-                      x++;
-                  } else {
-                      x--;
-                  }
-                  error -= dy;
-              }
-          }
+          error -= dx;
+        }
       }
+    }
+    else {
+      if (dy < 0) {
+        swap(sx0, sx1);
+        swap(sy0, sy1);
+        dx = -dx;
+        dy = -dy;
+      }
+      x = sx0;
+      bool pos_tan = dx > 0;
+      dx = abs(dx);
+      for (y = sy0; y <= sy1; y++) {
+        rasterize_point(x, y, color);
+        error += dx;
+        if ((error << 1) >= dy) {
+          if (pos_tan) {
+            x++;
+          } else {
+            x--;
+          }
+          error -= dy;
+        }
+      }
+    }
   }
 
+  /** fp version**/
+//  float dx = x1 - x0;
+//  float dy = y1 - y0;
+//  float x, y;
+//
+//  if (dy == 0.0) {  // horizontal
+//      if (x0 > x1) {
+//          swap(x0, x1);
+//      }
+//      x = x0 + 0.5;
+//      for (; x <= floor(x1) + 0.5; x+=1.0) {
+//          rasterize_point(x, y0 + 0.5, color);
+//      }
+//  } else if (dx == 0.0) {  // vertical
+//      if (y0 > y1) {
+//          swap(y0, y1);
+//      }
+//      y = y0 + 0.5;
+//      for (; y <= floor(y1) - 0.5; y+=1.0) {
+//          rasterize_point(x0 + 0.5, y, color);
+//      }
+//  }
+//  else {
+//      float error;
+//      float k = dy / dx;
+//      if (abs(k) <= 1) {  // acute angle
+//          if (dx < 0) {  // point1 always to the right of point0
+//              swap(x0, x1);
+//              swap(y0, y1);
+//          }
+//          x = floor(x0) + 0.5;
+//          y = floor(y0) + 0.5;
+//          error = k * (x - x0) + y0 - y;
+//          if (k < 0) error = -error;
+//          for (; x <= floor(x1) + 0.5; x += 1.0) {
+//              rasterize_point(x, y, color);
+//              error += k;
+//              if (k > 0) {
+//                if (error >= 0.5) {
+//                  y += 1.0;
+//                  error -= 1.0;
+//                }
+//              } else {
+//                if (error <= -0.5) {
+//                  y -= 1.0;
+//                  error += 1.0;
+//                }
+//              }
+//          }
+//      }
+//      else {
+//        if (dy < 0) {
+//          swap(x0, x1);
+//          swap(y0, y1);
+//        }
+//        k = dx / dy;
+//        x = floor(x0) + 0.5;
+//        y = floor(y0) + 0.5;
+//        error = k * (y - y0) + x0 - x;
+//        if (k < 0) error = -error;
+//        for (; y <= floor(y1) + 0.5; y += 1.0) {
+//          rasterize_point(x, y, color);
+//          error += k;
+//          if (k > 0) {
+//            if (error >= 0.5) {
+//              x += 1.0;
+//              error -= 1.0;
+//            }
+//          } else {
+//            if (error <= -0.5) {
+//              x -= 1.0;
+//              error += 1.0;
+//            }
+//          }
+//        }
+//      }
+//  }
 
 }
 
