@@ -1,4 +1,4 @@
-AndrewID: ??????
+AndrewID: xinyuech
 
 Task 1:
 
@@ -6,7 +6,8 @@ Task 1:
 
 Task 2:
 
-    Fully implemented.
+    I floored the coordinates of the endpoints to enable all-integer version of the Bresenham algorithm. I also use sample points that are full points instead of half points. With this method, there might be some errors but will not affect the overall image.
+    The float-point version with half-point sample points is also in my codebase but commented out. I found the first version to have less different pixels (w.r.t. the reference) than the second version, so I adopt the first version.
 
 Task 3:
 
@@ -18,19 +19,19 @@ Task 4:
 
 Task 5:
 
-    Fully implemented.
+    Not yet implemented.
 
 Task 6:
 
-    Fully implemented.
+    Not yet implemented.
 
 Task 7:
 
-    Fully implemented.
+    Not yet implemented.
 
 Task 8:
 
-    Fully implemented.
+    Not yet implemented.
 
 Extra credit:
 

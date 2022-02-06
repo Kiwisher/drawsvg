@@ -15,9 +15,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="annotations">
+    <list default="true" id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="add .gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/software_renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/software_renderer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup.txt" beforeDir="false" afterPath="$PROJECT_DIR$/writeup.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +90,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1644004743633</updated>
-      <workItem from="1644004746725" duration="30781000" />
+      <workItem from="1644004746725" duration="36251000" />
     </task>
     <task id="LOCAL-00001" summary="finish task1-3">
       <created>1644088164898</created>
@@ -112,7 +113,21 @@
       <option name="project" value="LOCAL" />
       <updated>1644100239470</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="move sample_buffer clearance">
+      <created>1644102489855</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1644102489855</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add .gitignore">
+      <created>1644178182060</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1644178182060</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +137,9 @@
     <MESSAGE value="finish task1-3" />
     <MESSAGE value="finish task 4" />
     <MESSAGE value="annotations" />
-    <option name="LAST_COMMIT_MESSAGE" value="annotations" />
+    <MESSAGE value="move sample_buffer clearance" />
+    <MESSAGE value="add .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="add .gitignore" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1644016420695">
@@ -141,30 +158,30 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="435" y="159" key="Github.UntrackedFilesDialog/0.0.1440.900@0.0.1440.900" timestamp="1644004797684" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1644016424182">
+    <state width="1398" height="87" key="GridCell.Tab.0.bottom" timestamp="1644184386111">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1644016424182" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1644016424181">
+    <state width="1398" height="87" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1644184386111" />
+    <state width="1398" height="87" key="GridCell.Tab.0.center" timestamp="1644184386108">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1644016424181" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1644016424180">
+    <state width="1398" height="87" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1644184386108" />
+    <state width="1398" height="87" key="GridCell.Tab.0.left" timestamp="1644184386107">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1644016424180" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1644016424181">
+    <state width="1398" height="87" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1644184386107" />
+    <state width="1398" height="87" key="GridCell.Tab.0.right" timestamp="1644184386110">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1644016424181" />
+    <state width="1398" height="87" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1644184386110" />
     <state x="229" y="86" key="SettingsEditor" timestamp="1644089213645">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="86" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1644089213645" />
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1644100240627">
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1644178183683">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1644100240627" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1644178183683" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
