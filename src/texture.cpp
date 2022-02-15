@@ -29,10 +29,8 @@ namespace CMU462 {
       Color c;
       int width = mip.width;
       int idx = x + y * width;
+      assert (idx < mip.width * mip.height);
       uint8_to_float(&c.r, &mip.texels[4 * idx]);
-      uint8_to_float(&c.g, &mip.texels[4 * idx + 1]);
-      uint8_to_float(&c.b, &mip.texels[4 * idx + 2]);
-      uint8_to_float(&c.a, &mip.texels[4 * idx + 3]);
       return c;
     }
 
@@ -78,18 +76,22 @@ namespace CMU462 {
       }
 
       // fill all 0 sub levels with interchanging colors (JUST AS A PLACEHOLDER)
-      Color colors[3] = {Color(1, 0, 0, 1), Color(0, 1, 0, 1),
-                         Color(0, 0, 1, 1)};
       for (size_t i = 1; i < tex.mipmap.size(); ++i) {
-
-        Color c = colors[i % 3];
-        MipLevel &mip = tex.mipmap[i];
-
-        for (size_t i = 0; i < 4 * mip.width * mip.height; i += 4) {
-          float_to_uint8(&mip.texels[i], &c.r);
+        MipLevel &curr_mip = tex.mipmap[i];
+        MipLevel &prev_mip = tex.mipmap[i - 1];
+        for (int j = 0; j < curr_mip.height; j++) {
+          for (int k = 0; k < curr_mip.width; k++) {
+            Color c;
+            c += color_at_tex(prev_mip, 2 * k, 2 * j);
+            c += color_at_tex(prev_mip, 2 * k + 1, 2 * j);
+            c += color_at_tex(prev_mip, 2 * k, 2 * j + 1);
+            c += color_at_tex(prev_mip, 2 * k + 1, 2 * j + 1);
+            c *= 0.25;
+            int idx = j * curr_mip.width + k;
+            float_to_uint8(&curr_mip.texels[4 * idx], &c.r);
+          }
         }
       }
-
     }
 
     Color Sampler2DImp::sample_nearest(Texture &tex,
@@ -146,8 +148,15 @@ namespace CMU462 {
       // Task 7: Implement trilinear filtering
 
       // return magenta for invalid level
-      return Color(1, 0, 1, 1);
-
+      float level = log2f(max(tex.width / u_scale, tex.height / v_scale));
+      if (level <= 0.) return sample_bilinear(tex, u, v, 0);
+      if (level >= tex.mipmap.size() - 1) return sample_bilinear(tex, u, v,
+                                                                 tex.mipmap.size() -
+                                                                 1);
+      int level_low = int(level);
+      int level_high = level_low + 1;
+      return (level - level_low) * sample_bilinear(tex, u, v, level_high) +
+             (level_high - level) * sample_bilinear(tex, u, v, level_low);
     }
 
 } // namespace CMU462

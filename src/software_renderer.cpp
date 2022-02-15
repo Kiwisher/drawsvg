@@ -472,27 +472,16 @@ namespace CMU462 {
       float height = y1 - y0;
       float x = floor(x0) + 0.5;
       float y;
-//  while (x <= x1) {
-//    y = floor(y0) + 0.5;
-//    while(y <= y1) {
-//      float u = (x - x0) / width;
-//      float v = (y - y0) / height;
-////      rasterize_point(x, y, this->sampler->sample_bilinear(tex, u, v, 0));
-//      rasterize_point(x, y, sampler->sample_nearest(tex, u, v, 0));
-//      y += 1.;
-//    }
-//    x += 1.;
-//  }
-      for (float x = floor(x0) + 0.5; x <= x1; x++) {
-        for (float y = floor(y0) + 0.5; y <= y1; y++) {
+      while (x <= x1) {
+        y = floor(y0) + 0.5;
+        while (y <= y1) {
           float u = (x - x0) / width;
           float v = (y - y0) / height;
-          //Color color = sampler->sample_nearest(tex, u, v, 0);
-          Color color = sampler->sample_bilinear(tex, u, v, 0);
-
-//      Color color = sampler->sample_trilinear(tex, u, v, imageWidth, imageHeight);
+          Color color = sampler->sample_trilinear(tex, u, v, width, height);
           rasterize_point(x, y, color);
+          y += 1.;
         }
+        x += 1.;
       }
     }
 
