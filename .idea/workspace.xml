@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="drawsvg" targetName="glew" />
-      <config projectName="drawsvg" targetName="glfw" />
       <config projectName="drawsvg" targetName="CMU462" />
-      <config projectName="drawsvg" targetName="drawsvg" />
+      <config projectName="drawsvg" targetName="glew" />
       <config projectName="drawsvg" targetName="drawsvg_hdwr" />
+      <config projectName="drawsvg" targetName="drawsvg" />
+      <config projectName="drawsvg" targetName="glfw" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -15,11 +33,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="minor">
+    <list default="true" id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="finish task 7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/software_renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/software_renderer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/texture.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewport.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewport.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,11 +90,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Application.glew" />
-      <item itemvalue="CMake Application.glfw" />
       <item itemvalue="CMake Application.CMU462" />
       <item itemvalue="CMake Application.drawsvg" />
       <item itemvalue="CMake Application.drawsvg_hdwr" />
+      <item itemvalue="CMake Application.glew" />
+      <item itemvalue="CMake Application.glfw" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -92,6 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1644004743633</updated>
       <workItem from="1644004746725" duration="51888000" />
+      <workItem from="1644969390611" duration="357000" />
     </task>
     <task id="LOCAL-00001" summary="finish task1-3">
       <created>1644088164898</created>
@@ -148,6 +165,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="finish task1-3" />
     <MESSAGE value="finish task 4" />
@@ -174,22 +194,22 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="435" y="159" key="Github.UntrackedFilesDialog/0.0.1440.900@0.0.1440.900" timestamp="1644004797684" />
-    <state width="1398" height="87" key="GridCell.Tab.0.bottom" timestamp="1644184386111">
+    <state width="1398" height="87" key="GridCell.Tab.0.bottom" timestamp="1644969370109">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="87" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1644184386111" />
-    <state width="1398" height="87" key="GridCell.Tab.0.center" timestamp="1644184386108">
+    <state width="1398" height="87" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1644969370109" />
+    <state width="1398" height="87" key="GridCell.Tab.0.center" timestamp="1644969370108">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="87" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1644184386108" />
-    <state width="1398" height="87" key="GridCell.Tab.0.left" timestamp="1644184386107">
+    <state width="1398" height="87" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1644969370108" />
+    <state width="1398" height="87" key="GridCell.Tab.0.left" timestamp="1644969370107">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="87" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1644184386107" />
-    <state width="1398" height="87" key="GridCell.Tab.0.right" timestamp="1644184386110">
+    <state width="1398" height="87" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1644969370107" />
+    <state width="1398" height="87" key="GridCell.Tab.0.right" timestamp="1644969370109">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="87" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1644184386110" />
+    <state width="1398" height="87" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1644969370109" />
     <state x="229" y="86" key="SettingsEditor" timestamp="1644089213645">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

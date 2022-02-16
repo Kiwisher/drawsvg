@@ -491,28 +491,25 @@ namespace CMU462 {
       // Task 4:
       // Implement supersampling
       // You may also need to modify other functions marked with "Task 4".
-      // clear array
-      memset(render_target, 0, 4 * target_w * target_h);
       for (int i = 0; i < target_w; i++) {
         for (int j = 0; j < target_h; j++) {
           int target_start_idx = 4 * (target_w * j + i);
+          int r, g, b, a;
+          r = g = b = a = 0;
           for (int dx = 0; dx < sample_rate; dx++) {
             for (int dy = 0; dy < sample_rate; dy++) {
               int x = sample_rate * i + dx;
               int y = sample_rate * j + dy;
-              render_target[target_start_idx] += sample_buffer[4 * (w * y + x)];
-              render_target[target_start_idx + 1] += sample_buffer[
-                      4 * (w * y + x) + 1];
-              render_target[target_start_idx + 2] += sample_buffer[
-                      4 * (w * y + x) + 2];
-              render_target[target_start_idx + 3] += sample_buffer[
-                      4 * (w * y + x) + 3];
+              r += sample_buffer[4 * (w * y + x)];
+              g += sample_buffer[4 * (w * y + x) + 1];
+              b += sample_buffer[4 * (w * y + x) + 2];
+              a += sample_buffer[4 * (w * y + x) + 3];
             }
           }
-          render_target[target_start_idx] /= (sample_rate * sample_rate);
-          render_target[target_start_idx + 1] /= (sample_rate * sample_rate);
-          render_target[target_start_idx + 2] /= (sample_rate * sample_rate);
-          render_target[target_start_idx + 3] /= (sample_rate * sample_rate);
+          render_target[target_start_idx] = r / (sample_rate * sample_rate);
+          render_target[target_start_idx + 1] = g / (sample_rate * sample_rate);
+          render_target[target_start_idx + 2] = b / (sample_rate * sample_rate);
+          render_target[target_start_idx + 3] = a / (sample_rate * sample_rate);
         }
       }
     }
