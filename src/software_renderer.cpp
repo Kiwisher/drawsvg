@@ -524,12 +524,12 @@ namespace CMU462 {
     }
 
     void SoftwareRendererImp::fill_pixel(int x, int y, const Color &c) {
-      int i = x * sample_rate;
-      int j = y * sample_rate;
-      int x_end = i + sample_rate;
-      int y_end = j + sample_rate;
-      for (; i < x_end; i++) {
-        for (; j < y_end; j++) {
+      int x_start = x * sample_rate;
+      int y_start = y * sample_rate;
+      int x_end = x_start + sample_rate;
+      int y_end = y_start + sample_rate;
+      for (int i = x_start; i < x_end; i++) {
+        for (int j = y_start; j < y_end; j++) {
           fill_sample(i, j, c);
         }
       }
