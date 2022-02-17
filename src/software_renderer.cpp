@@ -517,10 +517,27 @@ namespace CMU462 {
     void SoftwareRendererImp::fill_sample(int sx, int sy, const Color &c) {
       if (sx < 0 || sx >= w) return;
       if (sy < 0 || sy >= h) return;
-      sample_buffer[4 * (sx + sy * w)] = (uint8_t) (c.r * 255);
-      sample_buffer[4 * (sx + sy * w) + 1] = (uint8_t) (c.g * 255);
-      sample_buffer[4 * (sx + sy * w) + 2] = (uint8_t) (c.b * 255);
-      sample_buffer[4 * (sx + sy * w) + 3] = (uint8_t) (c.a * 255);
+      int idx = 4 * (sx + sy * w);
+
+      Color comp_color;
+      comp_color.r = (float) (sample_buffer[idx] / 255.);
+      comp_color.g = (float) (sample_buffer[idx + 1] / 255.);
+      comp_color.b = (float) (sample_buffer[idx + 2] / 255.);
+      comp_color.a = (float) (sample_buffer[idx + 3] / 255.);
+
+      comp_color.r = (1 - c.a) * comp_color.r + c.r * c.a;
+      comp_color.g = (1 - c.a) * comp_color.g + c.g * c.a;
+      comp_color.b = (1 - c.a) * comp_color.b + c.b * c.a;
+      comp_color.a = 1 - (1 - comp_color.a) * (1 - c.a);
+
+      sample_buffer[idx] = (uint8_t) (comp_color.r * 255);
+      sample_buffer[idx + 1] = (uint8_t) (comp_color.g * 255);
+      sample_buffer[idx + 2] = (uint8_t) (comp_color.b * 255);
+      sample_buffer[idx + 3] = (uint8_t) (comp_color.a * 255);
+//      sample_buffer[4 * (sx + sy * w)] = (uint8_t) (c.r * 255);
+//      sample_buffer[4 * (sx + sy * w) + 1] = (uint8_t) (c.g * 255);
+//      sample_buffer[4 * (sx + sy * w) + 2] = (uint8_t) (c.b * 255);
+//      sample_buffer[4 * (sx + sy * w) + 3] = (uint8_t) (c.a * 255);
     }
 
     void SoftwareRendererImp::fill_pixel(int x, int y, const Color &c) {

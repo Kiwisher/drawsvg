@@ -33,7 +33,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="fix supersampling bug">
+    <list default="true" id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="fix fill_pixel bug in supersampling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/software_renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/software_renderer.cpp" afterDir="false" />
     </list>
@@ -108,7 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1644004743633</updated>
       <workItem from="1644004746725" duration="51888000" />
-      <workItem from="1644969390611" duration="3506000" />
+      <workItem from="1644969390611" duration="8732000" />
     </task>
     <task id="LOCAL-00001" summary="finish task1-3">
       <created>1644088164898</created>
@@ -166,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644969762217</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix fill_pixel bug in supersampling">
+      <created>1645054946345</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1645054946345</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,7 +199,8 @@
     <MESSAGE value="add .gitignore" />
     <MESSAGE value="minor" />
     <MESSAGE value="fix supersampling bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix supersampling bug" />
+    <MESSAGE value="fix fill_pixel bug in supersampling" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix fill_pixel bug in supersampling" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1644016420695">
@@ -231,10 +239,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="86" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1644089213645" />
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1644969763147">
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1645054947432">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1644969763147" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1645054947431" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
