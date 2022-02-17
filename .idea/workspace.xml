@@ -33,7 +33,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="fix fill_pixel bug in supersampling">
+    <list default="true" id="6f4b039f-3894-4ec8-83d2-dc27e3810fde" name="Default Changelist" comment="finish task 8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/software_renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/software_renderer.cpp" afterDir="false" />
     </list>
@@ -108,7 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1644004743633</updated>
       <workItem from="1644004746725" duration="51888000" />
-      <workItem from="1644969390611" duration="8732000" />
+      <workItem from="1644969390611" duration="10337000" />
     </task>
     <task id="LOCAL-00001" summary="finish task1-3">
       <created>1644088164898</created>
@@ -173,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645054946345</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="finish task 8">
+      <created>1645062102481</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1645062102481</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +207,8 @@
     <MESSAGE value="minor" />
     <MESSAGE value="fix supersampling bug" />
     <MESSAGE value="fix fill_pixel bug in supersampling" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix fill_pixel bug in supersampling" />
+    <MESSAGE value="finish task 8" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish task 8" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1644016420695">
@@ -239,10 +247,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="86" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1644089213645" />
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1645054947432">
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1645062103454">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1645054947431" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1645062103454" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

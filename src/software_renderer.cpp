@@ -221,7 +221,6 @@ namespace CMU462 {
     }
 
     void SoftwareRendererImp::draw_ellipse(Ellipse &ellipse) {
-
       // Extra credit
 
     }
